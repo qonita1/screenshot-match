@@ -1,23 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { PublicFooter } from "@/components/layout/PublicFooter";
+import { PublicHeader } from "@/components/layout/PublicHeader";
+import { EcosystemSection } from "@/features/landing/components/EcosystemSection";
+import { FeaturesSection } from "@/features/landing/components/FeaturesSection";
+import { FootballIdSection } from "@/features/landing/components/FootballIdSection";
+import { HeroSection } from "@/features/landing/components/HeroSection";
+import { PrivacyCtaSection } from "@/features/landing/components/PrivacyCtaSection";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "One Identity. One Journey. One Football Ecosystem." },
+      {
+        name: "description",
+        content: "Platform digital yang menghubungkan pemain, orang tua, SSB, kompetisi, dan seluruh ekosistem sepak bola usia dini Indonesia.",
+      },
+      { property: "og:title", content: "One Identity. One Journey. One Football Ecosystem." },
+      { property: "og:description", content: "Infrastruktur digital sepak bola usia dini Indonesia — Football ID milik pemain." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: LandingPage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function LandingPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <PublicHeader />
+      <main>
+        <HeroSection />
+        <EcosystemSection />
+        <FootballIdSection />
+        <FeaturesSection />
+        <PrivacyCtaSection />
+      </main>
+      <PublicFooter />
     </div>
   );
 }

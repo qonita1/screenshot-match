@@ -10,33 +10,211 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRecoveryRouteImport } from './routes/account-recovery'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as SelectRoleRouteImport } from './routes/select-role'
+import { Route as VerifyOtpRouteImport } from './routes/verify-otp'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppParentIndexRouteImport } from './routes/app.parent.index'
+import { Route as AppParentConsentRouteImport } from './routes/app.parent.consent'
+import { Route as AppParentPaymentsRouteImport } from './routes/app.parent.payments'
+import { Route as AppPlayerIndexRouteImport } from './routes/app.player.index'
+import { Route as AppPlayerFootballIdRouteImport } from './routes/app.player.football-id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRecoveryRoute = AccountRecoveryRouteImport.update({
+  id: '/account-recovery',
+  path: '/account-recovery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SelectRoleRoute = SelectRoleRouteImport.update({
+  id: '/select-role',
+  path: '/select-role',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyOtpRoute = VerifyOtpRouteImport.update({
+  id: '/verify-otp',
+  path: '/verify-otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppParentIndexRoute = AppParentIndexRouteImport.update({
+  id: '/parent/',
+  path: '/parent/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppParentConsentRoute = AppParentConsentRouteImport.update({
+  id: '/parent/consent',
+  path: '/parent/consent',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppParentPaymentsRoute = AppParentPaymentsRouteImport.update({
+  id: '/parent/payments',
+  path: '/parent/payments',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlayerIndexRoute = AppPlayerIndexRouteImport.update({
+  id: '/player/',
+  path: '/player/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlayerFootballIdRoute = AppPlayerFootballIdRouteImport.update({
+  id: '/player/football-id',
+  path: '/player/football-id',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account-recovery': typeof AccountRecoveryRoute
+  '/app': typeof AppRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/register': typeof RegisterRoute
+  '/select-role': typeof SelectRoleRoute
+  '/verify-otp': typeof VerifyOtpRoute
+  '/app/': typeof AppIndexRoute
+  '/app/parent/consent': typeof AppParentConsentRoute
+  '/app/parent/payments': typeof AppParentPaymentsRoute
+  '/app/player/football-id': typeof AppPlayerFootballIdRoute
+  '/app/parent/': typeof AppParentIndexRoute
+  '/app/player/': typeof AppPlayerIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account-recovery': typeof AccountRecoveryRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/register': typeof RegisterRoute
+  '/select-role': typeof SelectRoleRoute
+  '/verify-otp': typeof VerifyOtpRoute
+  '/app': typeof AppIndexRoute
+  '/app/parent/consent': typeof AppParentConsentRoute
+  '/app/parent/payments': typeof AppParentPaymentsRoute
+  '/app/player/football-id': typeof AppPlayerFootballIdRoute
+  '/app/parent': typeof AppParentIndexRoute
+  '/app/player': typeof AppPlayerIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account-recovery': typeof AccountRecoveryRoute
+  '/app': typeof AppRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/register': typeof RegisterRoute
+  '/select-role': typeof SelectRoleRoute
+  '/verify-otp': typeof VerifyOtpRoute
+  '/app/': typeof AppIndexRoute
+  '/app/parent/consent': typeof AppParentConsentRoute
+  '/app/parent/payments': typeof AppParentPaymentsRoute
+  '/app/player/football-id': typeof AppPlayerFootballIdRoute
+  '/app/parent/': typeof AppParentIndexRoute
+  '/app/player/': typeof AppPlayerIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account-recovery'
+    | '/app'
+    | '/forgot-password'
+    | '/login'
+    | '/onboarding'
+    | '/register'
+    | '/select-role'
+    | '/verify-otp'
+    | '/app/'
+    | '/app/parent/consent'
+    | '/app/parent/payments'
+    | '/app/player/football-id'
+    | '/app/parent/'
+    | '/app/player/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account-recovery'
+    | '/forgot-password'
+    | '/login'
+    | '/onboarding'
+    | '/register'
+    | '/select-role'
+    | '/verify-otp'
+    | '/app'
+    | '/app/parent/consent'
+    | '/app/parent/payments'
+    | '/app/player/football-id'
+    | '/app/parent'
+    | '/app/player'
+  id:
+    | '__root__'
+    | '/'
+    | '/account-recovery'
+    | '/app'
+    | '/forgot-password'
+    | '/login'
+    | '/onboarding'
+    | '/register'
+    | '/select-role'
+    | '/verify-otp'
+    | '/app/'
+    | '/app/parent/consent'
+    | '/app/parent/payments'
+    | '/app/player/football-id'
+    | '/app/parent/'
+    | '/app/player/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRecoveryRoute: typeof AccountRecoveryRoute
+  AppRoute: typeof AppRouteWithChildren
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  OnboardingRoute: typeof OnboardingRoute
+  RegisterRoute: typeof RegisterRoute
+  SelectRoleRoute: typeof SelectRoleRoute
+  VerifyOtpRoute: typeof VerifyOtpRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +226,137 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account-recovery': {
+      id: '/account-recovery'
+      path: '/account-recovery'
+      fullPath: '/account-recovery'
+      preLoaderRoute: typeof AccountRecoveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/select-role': {
+      id: '/select-role'
+      path: '/select-role'
+      fullPath: '/select-role'
+      preLoaderRoute: typeof SelectRoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify-otp': {
+      id: '/verify-otp'
+      path: '/verify-otp'
+      fullPath: '/verify-otp'
+      preLoaderRoute: typeof VerifyOtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/parent/': {
+      id: '/app/parent/'
+      path: '/parent'
+      fullPath: '/app/parent/'
+      preLoaderRoute: typeof AppParentIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/parent/consent': {
+      id: '/app/parent/consent'
+      path: '/parent/consent'
+      fullPath: '/app/parent/consent'
+      preLoaderRoute: typeof AppParentConsentRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/parent/payments': {
+      id: '/app/parent/payments'
+      path: '/parent/payments'
+      fullPath: '/app/parent/payments'
+      preLoaderRoute: typeof AppParentPaymentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/player/': {
+      id: '/app/player/'
+      path: '/player'
+      fullPath: '/app/player/'
+      preLoaderRoute: typeof AppPlayerIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/player/football-id': {
+      id: '/app/player/football-id'
+      path: '/player/football-id'
+      fullPath: '/app/player/football-id'
+      preLoaderRoute: typeof AppPlayerFootballIdRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppIndexRoute: typeof AppIndexRoute
+  AppParentConsentRoute: typeof AppParentConsentRoute
+  AppParentPaymentsRoute: typeof AppParentPaymentsRoute
+  AppPlayerFootballIdRoute: typeof AppPlayerFootballIdRoute
+  AppParentIndexRoute: typeof AppParentIndexRoute
+  AppPlayerIndexRoute: typeof AppPlayerIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppIndexRoute: AppIndexRoute,
+  AppParentConsentRoute: AppParentConsentRoute,
+  AppParentPaymentsRoute: AppParentPaymentsRoute,
+  AppPlayerFootballIdRoute: AppPlayerFootballIdRoute,
+  AppParentIndexRoute: AppParentIndexRoute,
+  AppPlayerIndexRoute: AppPlayerIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRecoveryRoute: AccountRecoveryRoute,
+  AppRoute: AppRouteWithChildren,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  OnboardingRoute: OnboardingRoute,
+  RegisterRoute: RegisterRoute,
+  SelectRoleRoute: SelectRoleRoute,
+  VerifyOtpRoute: VerifyOtpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
